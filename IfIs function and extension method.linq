@@ -46,6 +46,15 @@ public static class ObjectExtensions
 	
 	public static string ArrayToString<T>(this IEnumerable<T> enumerable)
     {
-        return string.Format("[{0}]", enumerable == null ? string.Empty : string.Join(", ", enumerable.Select(_ => _.ToString()).ToArray()));
+        return string.Format("[{0}]", enumerable == null ? string.Empty : string.Join(", ", enumerable.Select(ToString).ToArray()));
     }
+	
+	private static string ToString<T>(T @object)
+	{
+		return @object.ToString();
+	}
+	
+	// log method & it's parameters values	
+	
+	// debug.log - ~ vs macro
 }
