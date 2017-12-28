@@ -57,4 +57,20 @@ public static class ObjectExtensions
 	// log method & it's parameters values	
 	
 	// debug.log - ~ vs macro
+	
+	public static void Times(this int count, Action action)
+    {
+        for (var i = 0; i < count; i++)
+        {
+            action();
+        }
+    }
+
+    public static void Times(this int count, Action<int> action)
+    {
+        for (var i = 0; i < count; i++)
+        {
+            action(i);
+        }
+    }
 }
