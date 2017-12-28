@@ -2,7 +2,10 @@
 
 void Main()
 {
-	var lazy = new Lazy<int?>(() => 1);
+	// var lazy = new Lazy<int>(() => 1); // T should be class
+	
+	var lazy = new Lazy<A>(() => new A { a = 1 });
+	lazy.Value.Dump();
 }
 
 // Define other methods and classes here
@@ -23,7 +26,7 @@ public class Lazy<T> where T : class
     }
 }
 
-public A 
+public class A 
 {
-	int a;
+	public int a;
 }
